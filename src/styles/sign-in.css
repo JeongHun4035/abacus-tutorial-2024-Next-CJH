@@ -1,0 +1,41 @@
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+  text-align: center;
+  gap: 4px;
+  align-items: center;
+}
+
+.sign-in-container label {
+  font-size: 30px;
+}
+
+.sign-in-container input {
+  width: 400px;
+  border-radius: 3px;
+}
+
+.sign-in-container span {
+  font-size: 18px;
+}
+
+.sign-in-container span > button {
+  font-size: 14px;
+}
+
+.sign-in-container span > button:hover {
+  color: aqua;
+  opacity: 0.6;
+}
+
+.sign-in-button {
+  border-radius: 3px;
+  background-color:deepskyblue;
+  color: black;
+}
+
+.sign-in-button:hover {
+  background-color:deepskyblue;
+  color: white;
+}
