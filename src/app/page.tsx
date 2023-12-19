@@ -1,25 +1,28 @@
 'use client'
 import { useEffect } from "react"
-// import { useRouter } from "next/router"
-
+import { useRouter } from "next/navigation"
+import GlobalHeader from "./header"
 const Main = () => {
-  // const router = useRouter()
-  // const presentSession = sessionStorage.getItem('key')
+  const router = useRouter()
+  const presentSession = sessionStorage.getItem('user')
   
-  // const checkToSession = () => {
-  //   // if(!presentSession) {
-  //   //   router.push('/sign-in')
-  //   // }
-  // }
+  const checkToSession = () => {
+    if(!presentSession) {
+      router.push('/sign-in')
+    }
+  }
 
-  // useEffect(() => {
-  //   checkToSession()
-  // }, [])
+  useEffect(() => {
+    checkToSession()
+  }, [])
 
 
   return (
     <>
-    ss
+      <div>
+        <GlobalHeader />
+      </div>
+      Main
     </>
   )
 }
