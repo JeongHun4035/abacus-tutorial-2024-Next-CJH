@@ -2,16 +2,13 @@
 import React from "react";
 import '@/styles/sign-in.css'
 import { useRouter } from "next/navigation";
-
 const SignIn = () => {
   const router = useRouter()
 
-  // const loginCheckAPI
   const createSession = () => {
     sessionStorage.setItem('user', 'test');
     router.push('/')
   }
-
 
   return (
       <div className="sign-in-container">
@@ -19,13 +16,17 @@ const SignIn = () => {
           <label>ID</label>
           <input
             placeholder="Input your Identify Document"
-            />
+            minLength={3}
+            maxLength={12}
+          />
         </div>
         <div>
           <label>Password</label>
           <input
             placeholder="Input your Password"
-            />
+            minLength={8}
+            maxLength={16}
+          />
         </div>
         <div className="sign-in-forgot-service">
           <button>forgot ID or Password ?</button>

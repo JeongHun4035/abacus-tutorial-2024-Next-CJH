@@ -1,10 +1,10 @@
 'use client'
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
-import GlobalHeader from "./header"
+import GlobalHeader from "../components/Header.tsx"
 const Main = () => {
   const router = useRouter()
-  const presentSession = sessionStorage.getItem('user')
+  const presentSession = typeof window !== 'undefined' ? sessionStorage.getItem('user') : null
   
   const checkToSession = () => {
     if(!presentSession) {
@@ -18,12 +18,9 @@ const Main = () => {
 
 
   return (
-    <>
-      <div>
+    <div>
         <GlobalHeader />
-      </div>
-      Main
-    </>
+    </div>
   )
 }
 

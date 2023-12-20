@@ -1,0 +1,12 @@
+.header-area {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  border-bottom: 1px solid  rgb(36, 55, 58);
+  align-items: center;
+  padding: 10px;
+}
+
+.header-mode-button {
+  margin-left: auto;
+}
