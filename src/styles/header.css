@@ -7,6 +7,10 @@
   padding: 10px;
 }
 
+.header-sidebar {
+  margin-right: auto;
+}
+
 .header-mode-button {
   margin-left: auto;
 }

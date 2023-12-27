@@ -19,7 +19,7 @@ const Main = () => {
 
   return (
     <div>
-        <GlobalHeader />
+      <GlobalHeader />
     </div>
   )
 }

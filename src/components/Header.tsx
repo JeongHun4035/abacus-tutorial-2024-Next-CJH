@@ -1,47 +1,55 @@
-'use client'
-import React, {useState, useEffect} from "react"
-import { EThemeCode } from "../types/enum/theme"
-import { Sun, Moon } from "react-feather"
-import '../styles/header.css'
+"use client";
+import React, { useState, useEffect } from "react";
+import { ETheme, ESidebarStatus } from "../types/enum/header";
+import { Sun, Moon, Menu } from "react-feather";
+import "../styles/header.css";
 
 const GlobalHeader = () => {
-  const recentlyTheme =  typeof window !== 'undefined' ? 
-  window.localStorage.getItem('theme') : null
-  const [theme, setTheme] = useState<string>(EThemeCode.DARK )
+  const recentlyTheme =
+    typeof window !== "undefined" ? window.localStorage.getItem("theme") : null;
+  const [theme, setTheme] = useState<string>(ETheme.DARK);
   const themeModeHandle = () => {
-    setTheme(theme === EThemeCode.DARK ? EThemeCode.LIGHT : EThemeCode.DARK)
-    window.localStorage.setItem('theme', theme)
-  }
+    setTheme(theme === ETheme.DARK ? ETheme.LIGHT : ETheme.DARK);
+    window.localStorage.setItem("theme", theme);
+  };
 
   const recentlyThemeSetting = () => {
-    const theme = recentlyTheme === EThemeCode.DARK ?  EThemeCode.LIGHT : EThemeCode.DARK
-    if(recentlyTheme) {
-      setTheme(theme)
+    const theme = recentlyTheme === ETheme.DARK ? ETheme.LIGHT : ETheme.DARK;
+    if (recentlyTheme) {
+      setTheme(theme);
     }
-  }
-  
+  };
+
   useEffect(() => {
-    document.body.dataset.theme = theme
-  }, [theme])
-  
+    document.body.dataset.theme = theme;
+  }, [theme]);
+
   useEffect(() => {
-    recentlyThemeSetting()
-  }, [])
+    recentlyThemeSetting();
+  }, []);
+
+  // const [sidebarStatus, setSidebarStatus] = useState<string>(ESidebarStatus.CLOSE)
+
+  const HandleTheMenu = () => {
+    console.log("open");
+  };
+
+  const removeSession = () => {
+    sessionStorage.removeItem("user");
+    window.location.reload();
+  };
 
   return (
     <div className="header-area">
+      <div onClick={HandleTheMenu} className="header-sidebar">
+        <Menu />
+      </div>
+      <button onClick={removeSession}>remove Session</button>
       <div onClick={themeModeHandle} className="header-mode-button">
-        {theme === EThemeCode.DARK?
-          (
-            <Sun />
-          ) : 
-          (
-            <Moon />
-          )
-        }
+        {theme === ETheme.DARK ? <Sun /> : <Moon />}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GlobalHeader
+export default GlobalHeader;
